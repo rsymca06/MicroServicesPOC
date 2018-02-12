@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: proxy-service
+
+server:
+  port: 8040
+
+eureka:
+  client:
+   # registerWithEureka: true
+   # fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8030/eureka/
+
+zuul:  
+  #Service will be mapped under the /api URI
+  prefix: /api
+#  Uncomment to disable auto-registering all services read from Eureka
+#  ignoredServices: '*'
+  routes:
+    employee:
+      path: /employee/**
+      serviceId: EMPLOYEE-SERVICE
+     # url: http://localhost:8010
+    finance:
+      path: /finance/**
+      serviceId: FINANCE-SERVICE
+      #url: http://localhost:8020
