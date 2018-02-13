@@ -41,7 +41,7 @@ public class EmployeeController {
 		ei.setEmpId(id);
 		ei.setName(employee.getName());
 		ei.setTotalIncome(incomeAndTax.getTotalIncome());
-		return null;
+		return ei;
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,consumes="application/json")
