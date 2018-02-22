@@ -36,7 +36,7 @@ public class EmployeeController {
 	@RequestMapping(value="/{id}/income", method=RequestMethod.GET)
 	public EmployeeIncome getEmployeeIncome(@PathVariable("id") long id){
 		Employee employee = service.getEmployee(id);
-		IncomeAndTax incomeAndTax = restTemplate.getForObject("http://FINANCE-SERVICE/finance/employeeIncomeAndTax/"+id,IncomeAndTax.class);
+		IncomeAndTax incomeAndTax = restTemplate.getForObject("http://financeService/finance/employeeIncomeAndTax/"+id,IncomeAndTax.class);
 		EmployeeIncome ei = new EmployeeIncome();
 		ei.setEmpId(id);
 		ei.setName(employee.getName());
